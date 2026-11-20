@@ -1,0 +1,1825 @@
+
+
+<!DOCTYPE html>
+
+<html lang="ky">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#f5f0e8">
+
+<title>Айдар & Айла | Wedding Invitation</title>
+
+<meta name="description" content="Айдар жана Айланын үйлөнүү тоюна чакыруу. 16-декабрь 2026-жыл.">
+
+<!-- GOOGLE FONTS -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===================================
+
+   1. НЕГИЗГИ СТИЛЬ
+
+=================================== */
+
+:root {
+
+  --ivory: #f5f0e8;
+
+  --cream: #eee5d9;
+
+  --paper: #fbf8f2;
+
+  --gold: #b49a70;
+
+  --brown: #514238;
+
+  --text: #65574a;
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+
+  --sans: 'Montserrat', Arial, sans-serif;
+
+}
+
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+body {
+
+  background: var(--ivory);
+
+  color: var(--text);
+
+  font-family: var(--sans);
+
+  overflow-x: hidden;
+
+}
+
+button {
+
+  font-family: inherit;
+
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+.hidden {
+
+  display: none !important;
+
+}
+
+/* ===================================
+
+   2. КОНВЕРТ
+
+=================================== */
+
+.envelope-screen {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 18px;
+
+  background: #eee7dc;
+
+  transition: opacity 1s ease, visibility 1s ease;
+
+}
+
+.envelope-screen.hide {
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+}
+
+.envelope {
+
+  position: relative;
+
+  width: min(100%, 430px);
+
+  height: min(78vh, 760px);
+
+  min-height: 480px;
+
+  perspective: 1500px;
+
+  filter: drop-shadow(0 15px 25px rgba(60,40,20,.15));
+
+}
+
+/* Конверттин сүрөтү */
+
+.envelope-left,
+
+.envelope-right {
+
+  position: absolute;
+
+  top: 0;
+
+  height: 100%;
+
+  width: 50%;
+
+  background-image: url("assets/envelope.jpeg");
+
+  background-repeat: no-repeat;
+
+  background-size: 200% 100%;
+
+  transition: transform 1.5s cubic-bezier(.72,0,.2,1);
+
+  backface-visibility: hidden;
+
+}
+
+.envelope-left {
+
+  left: 0;
+
+  background-position: left center;
+
+  transform-origin: left center;
+
+  z-index: 3;
+
+}
+
+.envelope-right {
+
+  right: 0;
+
+  background-position: right center;
+
+  transform-origin: right center;
+
+  z-index: 3;
+
+}
+
+/* Ачылуу кыймылы */
+
+.envelope.open .envelope-left {
+
+  transform: rotateY(-115deg);
+
+}
+
+.envelope.open .envelope-right {
+
+  transform: rotateY(115deg);
+
+}
+
+/* Ортодогу мөөр */
+
+.envelope-content {
+
+  position: absolute;
+
+  z-index: 5;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  width: 100%;
+
+  transition: opacity .4s ease;
+
+}
+
+.envelope.open .envelope-content {
+
+  opacity: 0;
+
+}
+
+.seal {
+
+  width: 80px;
+
+  height: 80px;
+
+  border-radius: 50%;
+
+  border: 1px solid #b49a70;
+
+  background: rgba(250,247,239,.96);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font: italic 26px var(--serif);
+
+  color: #88704f;
+
+  box-shadow: 0 4px 15px #8b76502b;
+
+}
+
+.seal span {
+
+  color: var(--gold);
+
+  margin: 0 3px;
+
+}
+
+.envelope-hint {
+
+  margin-top: 24px;
+
+  font-size: 9px;
+
+  letter-spacing: .22em;
+
+  color: #806f59;
+
+  text-align: center;
+
+}
+
+.open-button {
+
+  margin-top: 14px;
+
+  padding: 12px 30px;
+
+  border: 1px solid #b49a70;
+
+  background: rgba(250,247,239,.95);
+
+  color: #786247;
+
+  font-size: 10px;
+
+  letter-spacing: .2em;
+
+  cursor: pointer;
+
+  transition: .3s;
+
+}
+
+.open-button:active {
+
+  transform: scale(.95);
+
+}
+
+.envelope-caption {
+
+  margin-top: 18px;
+
+  color: #927e67;
+
+  font: italic 20px var(--serif);
+
+}
+
+/* ===================================
+
+   3. НЕГИЗГИ САЙТ
+
+=================================== */
+
+#mainSite {
+
+  width: 100%;
+
+  overflow: hidden;
+
+  animation: appear 1.5s ease;
+
+}
+
+@keyframes appear {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+.container {
+
+  width: min(100% - 38px, 650px);
+
+  margin: auto;
+
+  text-align: center;
+
+}
+
+.eyebrow {
+
+  color: #a28c70;
+
+  font-size: 9px;
+
+  letter-spacing: .27em;
+
+  line-height: 1.8;
+
+}
+
+.gold-line {
+
+  width: 48px;
+
+  height: 1px;
+
+  background: #c5ad8b;
+
+  margin: 25px auto;
+
+}
+
+.ornament {
+
+  color: var(--gold);
+
+  font-size: 24px;
+
+  margin: 22px 0;
+
+}
+
+/* ===================================
+
+   4. БАШКЫ ЭКРАН
+
+=================================== */
+
+.hero {
+
+  padding: 75px 0 55px;
+
+}
+
+.hero-script {
+
+  font: italic 25px var(--serif);
+
+  color: #a28b70;
+
+  margin-bottom: 5px;
+
+}
+
+.hero h1 {
+
+  font: italic 500 clamp(48px, 12vw, 78px)/1.1 var(--serif);
+
+  color: var(--brown);
+
+  margin: 10px 0 18px;
+
+}
+
+.hero h1 span {
+
+  color: var(--gold);
+
+}
+
+.hero-description {
+
+  font: 18px/1.8 var(--serif);
+
+  color: #8d7a65;
+
+}
+
+.hero-image-frame {
+
+  width: min(85%, 370px);
+
+  margin: 35px auto 24px;
+
+  padding: 8px;
+
+  background: var(--paper);
+
+  border: 1px solid #d9cbb8;
+
+}
+
+.hero-image {
+
+  width: 100%;
+
+  display: block;
+
+  aspect-ratio: 4/5;
+
+  object-fit: cover;
+
+  object-position: center;
+
+}
+
+.hero-date {
+
+  margin-top: 24px;
+
+  color: #8b765b;
+
+  font-size: 12px;
+
+  letter-spacing: .35em;
+
+}
+
+/* ===================================
+
+   5. ЧАКЫРУУ ТЕКСТИ
+
+=================================== */
+
+.invitation-message {
+
+  padding: 55px 0 65px;
+
+}
+
+.invitation-message h2 {
+
+  font: italic 500 40px var(--serif);
+
+  color: var(--brown);
+
+  margin: 12px 0 20px;
+
+}
+
+.invitation-text {
+
+  max-width: 510px;
+
+  margin: auto;
+
+  color: #635447;
+
+  font: 18px/2 var(--serif);
+
+}
+
+.parents {
+
+  margin-top: 28px;
+
+  color: var(--brown);
+
+  font: italic 36px var(--serif);
+
+}
+
+.parents span {
+
+  color: var(--gold);
+
+}
+
+.parents-label {
+
+  margin-top: 5px;
+
+  color: #a28d72;
+
+  font-size: 9px;
+
+  letter-spacing: .23em;
+
+}
+
+/* ===================================
+
+   6. СҮРӨТТӨР
+
+=================================== */
+
+.gallery {
+
+  padding: 55px 0 65px;
+
+  border-top: 1px solid #e5dbcf;
+
+}
+
+.section-title {
+
+  color: var(--brown);
+
+  font: 500 43px/1.1 var(--serif);
+
+  margin: 12px 0;
+
+}
+
+.section-subtitle {
+
+  font: italic 19px var(--serif);
+
+  color: #9c8871;
+
+  margin-bottom: 28px;
+
+}
+
+.gallery-grid {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  align-items: center;
+
+}
+
+.gallery-card {
+
+  padding: 6px;
+
+  background: var(--paper);
+
+  border: 1px solid #dfd1bd;
+
+  box-shadow: 0 8px 24px #59452b16;
+
+}
+
+.gallery-card img {
+
+  width: 100%;
+
+  display: block;
+
+  aspect-ratio: 3/4;
+
+  object-fit: cover;
+
+}
+
+.gallery-card.watercolor img {
+
+  object-fit: cover;
+
+}
+
+/* ===================================
+
+   7. COUNTDOWN
+
+=================================== */
+
+.countdown-section {
+
+  padding: 60px 15px;
+
+  background: #ebe2d6;
+
+}
+
+.countdown {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: clamp(10px, 4vw, 25px);
+
+  margin: 30px auto 20px;
+
+}
+
+.time-item {
+
+  min-width: 58px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+}
+
+.time-item span {
+
+  color: #665342;
+
+  font: 500 clamp(28px, 7vw, 42px) var(--serif);
+
+}
+
+.time-item small {
+
+  color: #9b866d;
+
+  font-size: 8px;
+
+  letter-spacing: .15em;
+
+}
+
+.countdown-note {
+
+  font: italic 18px var(--serif);
+
+  color: #907d67;
+
+}
+
+/* ===================================
+
+   8. ТОЙ МААЛЫМАТЫ
+
+=================================== */
+
+.details {
+
+  padding: 65px 0;
+
+}
+
+.details-card {
+
+  max-width: 440px;
+
+  margin: 30px auto 0;
+
+  padding: 35px 20px;
+
+  background: var(--paper);
+
+  border: 1px solid #e0d3c0;
+
+  box-shadow: 0 10px 35px #5c493010;
+
+}
+
+.detail-icon {
+
+  color: var(--gold);
+
+  font-size: 22px;
+
+  margin: 8px 0;
+
+}
+
+.detail-label {
+
+  color: #a28c70;
+
+  font-size: 9px;
+
+  letter-spacing: .23em;
+
+  margin-bottom: 10px;
+
+}
+
+.details-card h3 {
+
+  color: var(--brown);
+
+  font: 500 25px var(--serif);
+
+}
+
+.detail-muted {
+
+  color: #9c8873;
+
+  font: italic 17px var(--serif);
+
+  margin-top: 6px;
+
+}
+
+.detail-divider {
+
+  width: 45px;
+
+  height: 1px;
+
+  background: #d9c8af;
+
+  margin: 23px auto;
+
+}
+
+.map-button {
+
+  display: inline-block;
+
+  margin-top: 20px;
+
+  padding: 13px 20px;
+
+  border: 1px solid #b8a181;
+
+  color: #79664e;
+
+  text-decoration: none;
+
+  font-size: 9px;
+
+  letter-spacing: .17em;
+
+}
+
+/* ===================================
+
+   9. АКЫРКЫ БӨЛҮМ
+
+=================================== */
+
+.closing {
+
+  padding: 30px 0 60px;
+
+}
+
+.closing-image {
+
+  display: block;
+
+  width: min(75%, 310px);
+
+  margin: 0 auto 30px;
+
+  padding: 7px;
+
+  background: var(--paper);
+
+  border: 1px solid #d8c7b0;
+
+}
+
+.closing-script {
+
+  color: #a38c70;
+
+  font: italic 24px var(--serif);
+
+}
+
+.closing h2 {
+
+  color: var(--brown);
+
+  font: italic 500 55px var(--serif);
+
+  margin: 12px 0;
+
+}
+
+.closing h2 span {
+
+  color: var(--gold);
+
+}
+
+.closing-text {
+
+  max-width: 390px;
+
+  margin: auto;
+
+  color: #86735e;
+
+  font: 18px/1.8 var(--serif);
+
+}
+
+.closing-thanks {
+
+  margin: 20px 0;
+
+  color: var(--brown);
+
+  font: italic 32px var(--serif);
+
+}
+
+/* ===================================
+
+   10. FOOTER
+
+=================================== */
+
+footer {
+
+  padding: 20px;
+
+  text-align: center;
+
+  border-top: 1px solid #e4d9cb;
+
+  color: #a18e78;
+
+  font-size: 8px;
+
+  letter-spacing: .2em;
+
+}
+
+footer span {
+
+  color: var(--gold);
+
+}
+
+/* ===================================
+
+   11. МУЗЫКА
+
+=================================== */
+
+.music-button {
+
+  position: fixed;
+
+  z-index: 100;
+
+  right: 16px;
+
+  bottom: 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 11px 15px;
+
+  border: 1px solid #cbb99f;
+
+  border-radius: 30px;
+
+  background: rgba(250,247,241,.96);
+
+  color: #78664f;
+
+  font-size: 9px;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 18px #54432a20;
+
+}
+
+.music-bars {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 3px;
+
+  height: 14px;
+
+}
+
+.music-bars i {
+
+  width: 2px;
+
+  height: 5px;
+
+  background: #a48b68;
+
+  border-radius: 3px;
+
+}
+
+.music-button.playing .music-bars i {
+
+  animation: sound .6s infinite alternate;
+
+}
+
+.music-button.playing .music-bars i:nth-child(2) {
+
+  animation-delay: .2s;
+
+}
+
+.music-button.playing .music-bars i:nth-child(3) {
+
+  animation-delay: .4s;
+
+}
+
+@keyframes sound {
+
+  to {
+
+    transform: scaleY(2);
+
+  }
+
+}
+
+/* ===================================
+
+   12. ТЕЛЕФОН ҮЧҮН
+
+=================================== */
+
+@media(max-width: 380px) {
+
+  .envelope {
+
+    min-height: 430px;
+
+  }
+
+  .time-item {
+
+    min-width: 48px;
+
+  }
+
+  .invitation-text {
+
+    font-size: 16px;
+
+  }
+
+  .section-title {
+
+    font-size: 36px;
+
+  }
+
+}
+
+/* ===================================
+
+   13. КОМПЬЮТЕР ҮЧҮН
+
+=================================== */
+
+@media(min-width: 700px) {
+
+  .hero {
+
+    padding-top: 95px;
+
+  }
+
+  .gallery-grid {
+
+    gap: 22px;
+
+  }
+
+}
+
+/* ===================================
+
+   14. АНИМАЦИЯНЫ АЗАЙТУУ
+
+=================================== */
+
+@media(prefers-reduced-motion: reduce) {
+
+  *,
+
+  *::before,
+
+  *::after {
+
+    animation-duration: .01ms !important;
+
+    transition-duration: .01ms !important;
+
+    scroll-behavior: auto !important;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ===================================
+
+     1. АЧЫЛУУЧУ КОНВЕРТ
+
+=================================== -->
+
+<section class="envelope-screen" id="envelopeScreen">
+
+  <div class="envelope" id="envelope">
+
+    <div class="envelope-left"></div>
+
+    <div class="envelope-right"></div>
+
+    <div class="envelope-content">
+
+      <div class="seal">
+
+        A <span>&</span> A
+
+      </div>
+
+      <p class="envelope-hint">
+
+        ЧАКЫРУУНУ АЧУУ ҮЧҮН БАСЫҢЫЗ
+
+      </p>
+
+      <button class="open-button" id="openButton">
+
+        АЧУУ
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <p class="envelope-caption">
+
+    Сиз үчүн өзгөчө чакыруу
+
+  </p>
+
+</section>
+
+<!-- ===================================
+
+     2. НЕГИЗГИ САЙТ
+
+=================================== -->
+
+<main id="mainSite" class="hidden">
+
+  <!-- БАШКЫ БӨЛҮМ -->
+
+  <header class="hero container">
+
+    <p class="eyebrow">
+
+      ҮЙ-БҮЛӨБҮЗДҮН ЭҢ БАКТЫЛУУ КҮНҮ
+
+    </p>
+
+    <div class="ornament">✧</div>
+
+    <p class="hero-script">
+
+      Wedding Invitation
+
+    </p>
+
+    <h1>
+
+      Айдар <span>&</span> Айла
+
+    </h1>
+
+    <p class="hero-description">
+
+      Сүйүүбүздүн башаты болгон күнгө
+
+      <br>
+
+      сиздерди күтөбүз
+
+    </p>
+
+    <div class="hero-image-frame">
+
+      <img
+
+        class="hero-image"
+
+        src="assets/couple-detail-2.jpeg"
+
+        alt="Айдар жана Айла">
+
+    </div>
+
+    <p class="hero-date">
+
+      16 · 12 · 2026
+
+    </p>
+
+  </header>
+
+  <!-- ЧАКЫРУУ ТЕКСТИ -->
+
+  <section class="invitation-message container">
+
+    <div class="gold-line"></div>
+
+    <p class="eyebrow">
+
+      УРМАТТУУ КОНОКТОР
+
+    </p>
+
+    <h2>
+
+      Сиздерди чакырабыз!
+
+    </h2>
+
+    <p class="invitation-text">
+
+      ҮЙЛӨНҮҮ ТОЮНА АРНАЛГАН САЛТАНАТКА
+
+      КЕЛИП, АК ДАСТОРКОН ҮСТҮНДӨ БАТА БЕРИП,
+
+      КАДЫРЛУУ КОНОГУБУЗ БОЛУП
+
+      КЕТҮҮГӨ ЧАКЫРАБЫЗ!
+
+    </p>
+
+    <p class="parents">
+
+      Насыр <span>&</span> Наргиз
+
+    </p>
+
+    <p class="parents-label">
+
+      ТОЙ ЭЭЛЕРИ
+
+    </p>
+
+    <div class="gold-line"></div>
+
+  </section>
+
+  <!-- СҮРӨТТӨР -->
+
+  <section class="gallery container">
+
+    <p class="eyebrow">
+
+      OUR LITTLE STORY
+
+    </p>
+
+    <h2 class="section-title">
+
+      Сүйүү баяны
+
+    </h2>
+
+    <p class="section-subtitle">
+
+      Эки жүрөк — бир тагдыр
+
+    </p>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-card">
+
+        <img
+
+          src="assets/couple-detail-1.jpeg"
+
+          alt="Келин жана күйөө бала"
+
+          loading="lazy">
+
+      </div>
+
+      <div class="gallery-card watercolor">
+
+        <img
+
+          src="assets/watercolor-hands.jpeg"
+
+          alt="Акварель нике шакектери"
+
+          loading="lazy">
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- COUNTDOWN -->
+
+  <section class="countdown-section">
+
+    <div class="container">
+
+      <p class="eyebrow">
+
+        SAVE THE DATE
+
+      </p>
+
+      <h2 class="section-title">
+
+        Тойго чейин
+
+      </h2>
+
+      <div class="countdown">
+
+        <div class="time-item">
+
+          <span id="days">00</span>
+
+          <small>КҮН</small>
+
+        </div>
+
+        <div class="time-item">
+
+          <span id="hours">00</span>
+
+          <small>СААТ</small>
+
+        </div>
+
+        <div class="time-item">
+
+          <span id="minutes">00</span>
+
+          <small>МҮНӨТ</small>
+
+        </div>
+
+        <div class="time-item">
+
+          <span id="seconds">00</span>
+
+          <small>СЕКУНД</small>
+
+        </div>
+
+      </div>
+
+      <p class="countdown-note" id="countdownNote">
+
+        Бул өзгөчө күндү чогуу тосолу
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ТОЙДУН МААЛЫМАТЫ -->
+
+  <section class="details container">
+
+    <p class="eyebrow">
+
+      THE WEDDING DAY
+
+    </p>
+
+    <h2 class="section-title">
+
+      Той салтанаты
+
+    </h2>
+
+    <div class="details-card">
+
+      <div class="detail-icon">✧</div>
+
+      <p class="detail-label">
+
+        ТОЙДУН КҮНҮ
+
+      </p>
+
+      <h3>
+
+        16-декабрь, 2026-жыл
+
+      </h3>
+
+      <p class="detail-muted">
+
+        Шаршемби
+
+      </p>
+
+      <div class="detail-divider"></div>
+
+      <div class="detail-icon">◷</div>
+
+      <p class="detail-label">
+
+        БАШТАЛУУ УБАКТЫСЫ
+
+      </p>
+
+      <h3>
+
+        18:00
+
+      </h3>
+
+      <div class="detail-divider"></div>
+
+      <div class="detail-icon">⌖</div>
+
+      <p class="detail-label">
+
+        ТОЙ ӨТҮҮЧҮ ЖЕР
+
+      </p>
+
+      <h3>
+
+        Ресторан «Эльдорадо»
+
+      </h3>
+
+      <p class="detail-muted">
+
+        Ош шаары
+
+      </p>
+
+      <a
+
+        class="map-button"
+
+        href="https://www.google.com/maps/search/?api=1&query=Ресторан+Эльдорадо+Ош"
+
+        target="_blank"
+
+        rel="noopener">
+
+        КАРТАДАН КӨРҮҮ ↗
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- АКЫРКЫ БӨЛҮМ -->
+
+  <section class="closing container">
+
+    <img
+
+      class="closing-image"
+
+      src="assets/watercolor-hands.jpeg"
+
+      alt="Wedding rings"
+
+      loading="lazy">
+
+    <p class="closing-script">
+
+      With love
+
+    </p>
+
+    <h2>
+
+      Айдар <span>&</span> Айла
+
+    </h2>
+
+    <p class="closing-text">
+
+      Сиздердин келишиңиздер биз үчүн
+
+      чоң кубаныч жана сыймык!
+
+    </p>
+
+    <p class="closing-thanks">
+
+      Сиздерди күтөбүз!
+
+    </p>
+
+    <p class="hero-date">
+
+      16 · 12 · 2026
+
+    </p>
+
+  </section>
+
+  <footer>
+
+    MADE WITH LOVE <span>♡</span>
+
+  </footer>
+
+</main>
+
+<!-- ===================================
+
+     3. МУЗЫКА
+
+=================================== -->
+
+<audio
+
+  id="weddingMusic"
+
+  src="assets/wedding-music.mp3"
+
+  preload="auto"
+
+  loop>
+
+</audio>
+
+<button
+
+  class="music-button hidden"
+
+  id="musicButton"
+
+  type="button">
+
+  <span class="music-bars">
+
+    <i></i>
+
+    <i></i>
+
+    <i></i>
+
+    <i></i>
+
+  </span>
+
+  <span id="musicText">
+
+    Музыка
+
+  </span>
+
+</button>
+
+<!-- ===================================
+
+     4. JAVASCRIPT
+
+=================================== -->
+
+<script>
+
+/* ЭЛЕМЕНТТЕР */
+
+const envelope = document.getElementById("envelope");
+
+const envelopeScreen = document.getElementById("envelopeScreen");
+
+const openButton = document.getElementById("openButton");
+
+const mainSite = document.getElementById("mainSite");
+
+const music = document.getElementById("weddingMusic");
+
+const musicButton = document.getElementById("musicButton");
+
+const musicText = document.getElementById("musicText");
+
+/* ===================================
+
+   1. КОНВЕРТТИ АЧУУ
+
+=================================== */
+
+openButton.addEventListener("click", async function() {
+
+  if (openButton.disabled) return;
+
+  openButton.disabled = true;
+
+  // Конверт ачылат
+
+  envelope.classList.add("open");
+
+  // Музыка башталат
+
+  try {
+
+    music.volume = 0.55;
+
+    await music.play();
+
+    setMusicStatus(true);
+
+  } catch(error) {
+
+    console.log("Музыка иштеген жок:", error);
+
+    setMusicStatus(false);
+
+  }
+
+  // Негизги сайтты ачуу
+
+  setTimeout(function() {
+
+    mainSite.classList.remove("hidden");
+
+    musicButton.classList.remove("hidden");
+
+    envelopeScreen.classList.add("hide");
+
+    startCountdown();
+
+    setTimeout(function() {
+
+      envelopeScreen.remove();
+
+    }, 1100);
+
+  }, 1200);
+
+});
+
+/* ===================================
+
+   2. МУЗЫКАНЫН АБАЛЫ
+
+=================================== */
+
+function setMusicStatus(playing) {
+
+  musicButton.classList.toggle("playing", playing);
+
+  musicText.textContent = playing
+
+    ? "Музыка күйүп турат"
+
+    : "Музыканы угуу";
+
+  musicButton.setAttribute(
+
+    "aria-label",
+
+    playing ? "Музыканы өчүрүү" : "Музыканы күйгүзүү"
+
+  );
+
+}
+
+/* ===================================
+
+   3. МУЗЫКАНЫ КҮЙГҮЗҮҮ ЖАНА ӨЧҮРҮҮ
+
+=================================== */
+
+musicButton.addEventListener("click", async function() {
+
+  if (music.paused) {
+
+    try {
+
+      await music.play();
+
+      setMusicStatus(true);
+
+    } catch(error) {
+
+      console.log("Музыка ойнотулган жок");
+
+      setMusicStatus(false);
+
+    }
+
+  } else {
+
+    music.pause();
+
+    setMusicStatus(false);
+
+  }
+
+});
+
+/* ===================================
+
+   4. ТОЙДУН ДАТАСЫ
+
+=================================== */
+
+// 16-декабрь 2026-жыл
+
+// 18:00
+
+// Бишкек / Ош убактысы UTC+6
+
+const weddingDate = new Date(
+
+  "2026-12-16T18:00:00+06:00"
+
+).getTime();
+
+let countdownTimer;
+
+/* ===================================
+
+   5. COUNTDOWN БАШТОО
+
+=================================== */
+
+function startCountdown() {
+
+  updateCountdown();
+
+  if (countdownTimer) {
+
+    clearInterval(countdownTimer);
+
+  }
+
+  countdownTimer = setInterval(
+
+    updateCountdown,
+
+    1000
+
+  );
+
+}
+
+/* ===================================
+
+   6. COUNTDOWN ЭСЕПТӨӨ
+
+=================================== */
+
+function updateCountdown() {
+
+  const now = Date.now();
+
+  const difference = weddingDate - now;
+
+  const note = document.getElementById("countdownNote");
+
+  // Тойдун күнү келип калса
+
+  if (difference <= 0) {
+
+    document.getElementById("days").textContent = "00";
+
+    document.getElementById("hours").textContent = "00";
+
+    document.getElementById("minutes").textContent = "00";
+
+    document.getElementById("seconds").textContent = "00";
+
+    note.textContent = "Бүгүн биздин өзгөчө күнүбүз!";
+
+    clearInterval(countdownTimer);
+
+    return;
+
+  }
+
+  // Күндөр
+
+  const days = Math.floor(
+
+    difference / (1000 * 60 * 60 * 24)
+
+  );
+
+  // Сааттар
+
+  const hours = Math.floor(
+
+    (difference / (1000 * 60 * 60)) % 24
+
+  );
+
+  // Мүнөттөр
+
+  const minutes = Math.floor(
+
+    (difference / (1000 * 60)) % 60
+
+  );
+
+  // Секунддар
+
+  const seconds = Math.floor(
+
+    (difference / 1000) % 60
+
+  );
+
+  // Экранга чыгаруу
+
+  document.getElementById("days").textContent =
+
+    String(days).padStart(2, "0");
+
+  document.getElementById("hours").textContent =
+
+    String(hours).padStart(2, "0");
+
+  document.getElementById("minutes").textContent =
+
+    String(minutes).padStart(2, "0");
+
+  document.getElementById("seconds").textContent =
+
+    String(seconds).padStart(2, "0");
+
+}
+
+</script>
+
+</body>
+
+</html>
